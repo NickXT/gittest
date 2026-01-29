@@ -17,8 +17,9 @@ style="width:100%;max-width:960px">
 
  
 <h2>Get CPU temperature</h2>
+<pre>
  <code>
-  cls
+cls
 $dll = "LibreHardwareMonitorLib.dll"
 
 Unblock-File -LiteralPath $dll
@@ -35,5 +36,6 @@ foreach ($sensor in $monitor.Hardware.Sensors) {
 }
 $monitor.Close()
  </code>
+</pre>
 </body>
 </html> 
