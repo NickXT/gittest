@@ -14,5 +14,26 @@ style="width:100%;max-width:960px"></div>
 <p>A new paragraph for the first GitHub!</p>
 <img src="gitpull.png" alt="Hello World from Space"
 style="width:100%;max-width:960px">
+
+ 
+<h2>Get CPU temperature</h2>
+ <code>
+  cls
+$dll = "LibreHardwareMonitorLib.dll"
+
+Unblock-File -LiteralPath $dll
+Add-Type -LiteralPath $dll
+$monitor = [LibreHardwareMonitor.Hardware.Computer]::new()
+$monitor.IsCPUEnabled = $true
+$monitor.IsStorageEnabled = $true
+
+$monitor.Open()
+foreach ($sensor in $monitor.Hardware.Sensors) {
+    write-host $sensor.Name
+    write-host $sensor.SensorType
+    write-host $sensor.Value
+}
+$monitor.Close()
+ </code>
 </body>
 </html> 
